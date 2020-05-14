@@ -14,11 +14,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
 import { EstudiantesComponent } from './pages/estudiantes/estudiantes.component';
-<<<<<<< HEAD
 import { ProveedorComponent } from './pages/proveedor/proveedor.component';
-=======
 import { LoginComponent } from './pages/login/login.component';
->>>>>>> cdb58936fc92d74952d60bf009a8b1fad6085983
 
 @NgModule({
   declarations: [
@@ -27,11 +24,8 @@ import { LoginComponent } from './pages/login/login.component';
     FooterComponent,
     HomeComponent,
     EstudiantesComponent,
-<<<<<<< HEAD
-    ProveedorComponent
-=======
+    ProveedorComponent,
     LoginComponent
->>>>>>> cdb58936fc92d74952d60bf009a8b1fad6085983
   ],
   imports: [
     BrowserModule,
