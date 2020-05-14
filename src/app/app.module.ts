@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 
 /*IMPORT NECESARIO PARA TRABAJAR CON EL NG-MODEL*/
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 /*IMPORT NECESARIO PARA LAS PETICIONES HTTP*/
 import { HttpClient, HttpClientModule } from '@angular/common/http';
@@ -14,6 +14,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
 import { EstudiantesComponent } from './pages/estudiantes/estudiantes.component';
+import { LoginComponent } from './pages/login/login.component';
 
 @NgModule({
   declarations: [
@@ -21,13 +22,15 @@ import { EstudiantesComponent } from './pages/estudiantes/estudiantes.component'
     NavbarComponent,
     FooterComponent,
     HomeComponent,
-    EstudiantesComponent
+    EstudiantesComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
