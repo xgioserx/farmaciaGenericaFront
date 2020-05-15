@@ -1,172 +1,112 @@
 <div class="animated fadeIn fast">
     <div class="row">
-      <div class="col-4">
-        <form #formulario="ngForm">
-          <div class="form-row">
-            <div class="form-group col-md-6">
-              <label for="txtCodigo">Codigo</label>
-              <input
-                type="text"
-                class="form-control"
-                id="txtCodigo"
-                name="codigo"
-                placeholder="Ingrese codigo" 
-                required="required"
-                [(ngModel)]="estudianteData.codigo"
-              />
-            </div>
-            <div class="form-group col-md-6">
-              <label for="txtNombre">Nombre</label>
-              <input
-                type="text"
-                class="form-control"
-                id="txtNombre"
-                name="nombre"
-                placeholder="Ingrese nombre" 
-                required="required"
-                [(ngModel)]="estudianteData.nombre"
-              />
-            </div>
-          </div>
-  
-          <div class="form-row">
-            <div class="form-group col-md-6">
-              <label for="txtApellido">Apellido</label>
-              <input
-                type="text"
-                class="form-control"
-                id="txtApellido"
-                name="apellido"
-                placeholder="Ingrese apellido" 
-                required="required"
-                [(ngModel)]="estudianteData.apellido"
-              />
-            </div>
-            <div class="form-group col-md-6">
-              <label for="txtCedula">Cedula</label>
-              <input
-                type="number"
-                class="form-control"
-                id="txtCedula"
-                name="cedula"
-                placeholder="Ingrese su cedula" 
-                required="required"
-                [(ngModel)]="estudianteData.cedula"
-              />
-            </div>
-          </div>
-  
-          <div class="form-row">
-            <div class="form-group col-md-6">
-              <label for="txtEdad">Edad</label>
-              <input
-                type="number"
-                class="form-control"
-                id="txtEdad"
-                name="edad"
-                placeholder="Ingrese su edad" 
-                required="required"
-                [(ngModel)]="estudianteData.edad"
-              />
-            </div>
-            <div class="form-group col-md-6">
-              <label for="txtSemestre">Semestre</label>
-              <input
-                type="number"
-                class="form-control"
-                id="txtSemestre"
-                name="semestre"
-                placeholder="Ingrese su semestre" 
-                required="required"
-                [(ngModel)]="estudianteData.semestre"
-              />
-            </div>
-          </div>
-  
-          <div class="form-row">
-            <div class="form-group col-md-3">
-                
-              <button type="button" class="btn btn-primary btn-lg" [disabled]="formulario.invalid" (click)="guardarEstudiante()">
+        <div class="col-4">
+            <form #formulario="ngForm">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="txtCodigo">Codigo</label>
+                        <input type="text" class="form-control" id="txtCodigo" name="codigo" placeholder="Ingrese codigo" required="required" [(ngModel)]="estudianteData.codigo" />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="txtNombre">Nombre</label>
+                        <input type="text" class="form-control" id="txtNombre" name="nombre" placeholder="Ingrese nombre" required="required" [(ngModel)]="estudianteData.nombre" />
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="txtApellido">Apellido</label>
+                        <input type="text" class="form-control" id="txtApellido" name="apellido" placeholder="Ingrese apellido" required="required" [(ngModel)]="estudianteData.apellido" />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="txtCedula">Cedula</label>
+                        <input type="number" class="form-control" id="txtCedula" name="cedula" placeholder="Ingrese su cedula" required="required" [(ngModel)]="estudianteData.cedula" />
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="txtEdad">Edad</label>
+                        <input type="number" class="form-control" id="txtEdad" name="edad" placeholder="Ingrese su edad" required="required" [(ngModel)]="estudianteData.edad" />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="txtSemestre">Semestre</label>
+                        <input type="number" class="form-control" id="txtSemestre" name="semestre" placeholder="Ingrese su semestre" required="required" [(ngModel)]="estudianteData.semestre" />
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-3">
+
+                        <button type="button" class="btn btn-primary btn-lg" [disabled]="formulario.invalid" (click)="guardarEstudiante()">
                 Guardar
               </button>
-            </div>
-            
-            <div class="form-group col-md-3">
-              <button type="button" class="btn btn-primary btn-lg" [disabled]="!this.helperService.isValidValue(estudianteData.codigo)" (click)="buscarEstudiante()">Buscar</button>
-            </div>
-  
-            
-            <div class="form-group col-md-3">
-              <button type="button" class="btn btn-primary btn-lg" [disabled]="formulario.invalid && !this.helperService.isValidValue(estudianteData.id)" (click)="guardarEstudiante()">
+                    </div>
+
+                    <div class="form-group col-md-3">
+                        <button type="button" class="btn btn-primary btn-lg" [disabled]="!this.helperService.isValidValue(estudianteData.codigo)" (click)="buscarEstudiante()">Buscar</button>
+                    </div>
+
+
+                    <div class="form-group col-md-3">
+                        <button type="button" class="btn btn-primary btn-lg" [disabled]="formulario.invalid && !this.helperService.isValidValue(estudianteData.id)" (click)="guardarEstudiante()">
                 Modificar
               </button>
-            </div>
-  
-            
-            <div class="form-group col-md-3">
-              <button type="button" class="btn btn-primary btn-lg" [disabled]="!this.helperService.isValidValue(estudianteData.id)" (click)="eliminarEstudiante()">
+                    </div>
+
+
+                    <div class="form-group col-md-3">
+                        <button type="button" class="btn btn-primary btn-lg" [disabled]="!this.helperService.isValidValue(estudianteData.id)" (click)="eliminarEstudiante()">
                 Eliminar
               </button>
-            </div>
-          </div>
-        </form>
-      </div>
-  
-      <div class="col-8">
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Codigo</th>
-              <th>Nombre</th>
-              <th>Apellido</th>
-              <th>Cedula</th>
-              <th>Edad</th>
-              <th>Semestre</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let estudiante of estudiantes; index as i">
-              <th>{{ i + 1 }}</th>
-              <td>{{ estudiante.codigo }}</td>
-              <td>{{ estudiante.nombre }}</td>
-              <td>{{ estudiante.apellido }}</td>
-              <td>{{ estudiante.cedula }}</td>
-              <td>{{ estudiante.edad }}</td>
-              <td>{{ estudiante.semestre }}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="col-8">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Codigo</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Cedula</th>
+                        <th>Edad</th>
+                        <th>Semestre</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let estudiante of estudiantes; index as i">
+                        <th>{{ i + 1 }}</th>
+                        <td>{{ estudiante.codigo }}</td>
+                        <td>{{ estudiante.nombre }}</td>
+                        <td>{{ estudiante.apellido }}</td>
+                        <td>{{ estudiante.cedula }}</td>
+                        <td>{{ estudiante.edad }}</td>
+                        <td>{{ estudiante.semestre }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
-  </div>
+</div>
 
 
-  <div
-  id="mdlSample"
-  class="modal fade"
-  role="dialog"
-  [ngStyle]="{ display: helperService.modalOpen ? 'block' : 'none', opacity: 1 }"
->
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title" style="color: white;">{{ helperService.modalTitle }}</h4>
-      </div>
-      <div class="modal-body">{{ helperService.modalContent }}</div>
+<div id="mdlSample" class="modal fade" role="dialog" [ngStyle]="{ display: helperService.modalOpen ? 'block' : 'none', opacity: 1 }">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" style="color: white;">{{ helperService.modalTitle }}</h4>
+            </div>
+            <div class="modal-body">{{ helperService.modalContent }}</div>
 
-      <div class="modal-footer">
-        <button
-          type="button"
-          id="btnOK"
-          class="btn btn-success"
-          (click)="helperService.openModal(false)"
-        >
+            <div class="modal-footer">
+                <button type="button" id="btnOK" class="btn btn-success" (click)="helperService.openModal(false)">
           <i class="fa fa-check fa-fw"></i> Ok
         </button>
-      </div>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
-  
-  
