@@ -5,10 +5,10 @@ import { HelperService } from 'src/app/util/HelperService';
 
 @Component({
   selector: 'app-estante',
-  templateUrl: './estante.component.html',
-  styleUrls: ['./estante.component.css']
+  templateUrl: './estantes.component.html',
+  styleUrls: ['./estantes.component.css']
 })
-export class EstanteComponent implements OnInit {
+export class EstantesComponent implements OnInit {
   estantes: ModelEstantes[] = [];
   estanteData = {} as ModelEstantes;
   constructor(

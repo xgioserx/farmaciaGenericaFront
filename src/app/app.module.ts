@@ -16,9 +16,9 @@ import { HomeComponent } from './pages/home/home.component';
 import { EstudiantesComponent } from './pages/estudiantes/estudiantes.component';
 import { ProveedorComponent } from './pages/proveedor/proveedor.component';
 import { LoginComponent } from './pages/login/login.component';
-import { ClienteComponent } from './pages/cliente/cliente.component';
+import { ClientesComponent } from './pages/clientes/clientes.component';
 import { EmpleadoComponent } from './pages/empleado/empleado.component';
-import { EstanteComponent } from './pages/estante/estante.component';
+import { EstantesComponent } from './pages/estantes/estantes.component';
 
 @NgModule({
   declarations: [
@@ -29,9 +29,9 @@ import { EstanteComponent } from './pages/estante/estante.component';
     EstudiantesComponent,
     ProveedorComponent,
     LoginComponent,
-    ClienteComponent,
+    ClientesComponent,
     EmpleadoComponent,
-    EstanteComponent
+    EstantesComponent
   ],
   imports: [
     BrowserModule,
