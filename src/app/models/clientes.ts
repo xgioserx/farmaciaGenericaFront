@@ -1,4 +1,4 @@
-export interface ModelCliente {
+export interface ModelClientes {
     id: string;
     nombre: string;
     apellido: string;
