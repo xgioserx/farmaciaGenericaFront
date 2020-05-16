@@ -95,11 +95,11 @@ export class EstudiantesComponent implements OnInit {
   }
 
   
-  buscarEstudiante() {
+  buscarEstudiante(codigo) {
 
     let postDataObj = new FormData();
 
-    postDataObj.append("codigo", this.estudianteData.codigo);
+    postDataObj.append("codigo", codigo);
     postDataObj.append("type", "search");
 
     this.estudianteService.buscarEstudiante(postDataObj).subscribe(

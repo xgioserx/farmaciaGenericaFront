@@ -1,37 +1,36 @@
-<div class="animated fadeIn fast">
-    <div class="container col-md-12">
-        <div class="text-left" style="margin-top: 100px">
-            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#clienteModal">
+<div class="container col-md-12">
+    <div class="text-left" style="margin-top: 100px">
+        <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#clienteModal">
         Registrar cliente
       </button>
 
-            <div>
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Id</th>
-                            <th>Nombre</th>
-                            <th>Apellido</th>
-                            <th>Tipo Documento</th>
-                            <th>Numero Documento</th>
-                            <th>Ciudad Nacimiento</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let cliente of cliente; index as i">
-                            <th>{{ i + 1 }}</th>
-                            <td>{{ cliente.id }}</td>
-                            <td>{{ cliente.nombre }}</td>
-                            <td>{{ cliente.apellido }}</td>
-                            <td>{{ cliente.tipo_documento }}</td>
-                            <td>{{ cliente.numero_documento }}</td>
-                            <td>{{ cliente.ciudadNacimiento }}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+        <div>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Id</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Tipo Documento</th>
+                        <th>Numero Documento</th>
+                        <th>Ciudad Nacimiento</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let cliente of cliente; index as i">
+                        <th>{{ i + 1 }}</th>
+                        <td>{{ cliente.id }}</td>
+                        <td>{{ cliente.nombre }}</td>
+                        <td>{{ cliente.apellido }}</td>
+                        <td>{{ cliente.tipo_documento }}</td>
+                        <td>{{ cliente.numero_documento }}</td>
+                        <td>{{ cliente.ciudadNacimiento }}</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
+
         <!-- Modal -->
         <div class="modal fade" id="clienteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg" role="document">
@@ -68,6 +67,17 @@
                             <span class="input-group-text">Numero documento</span>
                         </div>
                         <input type="number" id="txtNumDocumento" aria-label="First name" class="form-control">
+
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Genero</span>
+                        </div>
+
+                        <select name="" id="comboTipo" class="form-control" formControlName="genero">
+                                <option value="0">-Seleccione-</option>
+                                <option *ngFor="let genero of cliente" value="{{genero.id}}">
+                                    {{genero.nombre}}
+                                </option>
+                            </select>
 
                         <div class="input-group-prepend">
                             <span class="input-group-text">Codigo de validacion</span>

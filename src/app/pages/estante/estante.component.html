@@ -1,0 +1,145 @@
+<div class="animated fadeIn fast">
+
+    <button class="btn btn-primary" data-toggle="modal" data-target="#estanteModal">Registrar Estante</button>
+
+    <!-- Modal -->
+
+    <div class="modal fade" id="estanteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title text-white" id="exampleModalLabel">Registrar estante</h3>
+
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                </div>
+
+                <div class="modal-body">
+                    <form #formulario="ngForm">
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="txtNombre">Nombre</label>
+                                <input type="text" class="form-control" id="txtNombre" name="nombre" placeholder="Ingrese nombre" required="required" [(ngModel)]="estanteData.nombre">
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label for="txtApellido">Descripcion</label>
+                                <input type="text" class="form-control" id="txtDescripcion" name="descripcion" placeholder="Ingrese descripcion" required="required" [(ngModel)]="estanteData.descripcion">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="modal-footer col-12">
+                    <div class="col-4">
+                        <button type="button" [disabled]="formulario.invalid" (click)="guardarEstante()" class="btn btn-primary" data-dismiss="modal">Guardar</button>
+                    </div>
+                    <div class="col-6">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal Buscar-->
+    <div class="modal fade" id="estanteBuscar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title text-white" id="exampleModalLabel">Gestion estante</h3>
+
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                </div>
+
+                <div class="modal-body">
+                    <form #formulario="ngForm">
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="txtNombre">Nombre</label>
+                                <input type="text" class="form-control" id="txtNombre" name="nombre" placeholder="Ingrese nombre" required="required" [(ngModel)]="estanteData.nombre">
+                            </div>
+
+
+
+                            <div class="form-group col-md-6">
+                                <label for="txtApellido">Descripcion</label>
+
+                                <input type="text" class="form-control" id="txtDescripcion" name="descripcion" placeholder="Ingrese descripcion" required="required" [(ngModel)]="estanteData.descripcion">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+
+
+                <div class="modal-footer col-md-12">
+                    <div class="col-4">
+                        <button type="button" [disabled]="formulario.invalid && !this.helperService.isValidValue(estanteData.id)" (click)="guardarEstante()" class="btn btn-primary" data-dismiss="modal">Modificar</button>
+                    </div>
+                    <div class="col-4">
+                        <button type="button" [disabled]="!this.helperService.isValidValue(estanteData.id)" (click)="eliminarEstante()" class=" btn btn-primary " data-dismiss="modal">Eliminar</button>
+                    </div>
+                    <div class="col-4 ">
+                        <button type="button " class="btn btn-secondary " data-dismiss="modal">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="col-12 ">
+        <table class="table table-striped ">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>id</th>
+                    <th>Nombre</th>
+                    <th>Descripcion</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let estante of estantes; index as i" (click)=" buscarEstante()" data-toggle="modal" data-target="#clienteBuscar">
+                    <th>{{ i + 1 }}</th>
+                    <td>{{ estante.id }}</td>
+                    <td>{{ estante.nombre }}</td>
+                    <td>{{ estante.descripcion }}</td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+<div id="mdlSample " class="modal fade " role="dialog " [ngStyle]="{ display: helperService.modalOpen ? 'block' : 'none', opacity: 1 } ">
+    <div class="modal-dialog modal-lg ">
+        <div class="modal-content ">
+            <div class="modal-header ">
+                <h4 class="modal-title " style="color: white; ">
+                    {{ helperService.modalTitle }}
+                </h4>
+            </div>
+
+            <div class="modal-body ">
+                {{ helperService.modalContent }}
+            </div>
+
+            <div class="modal-footer ">
+                <button type="button " id="btnOK " class="btn btn-success " (click)="helperService.openModal(false) ">
+                    <i class="fa fa-check fa-fw "></i>
+                    Ok
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
